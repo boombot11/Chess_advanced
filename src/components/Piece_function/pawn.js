@@ -2,10 +2,14 @@
 export const isValidPawnMove = (from, to, board, isWhite, isEnPassant = false, enPassantPosition = null) => {
     const [fromRow, fromCol] = from;
     const [toRow, toCol] = to;
-  
-    const direction = isWhite ? -1 : 1;
+    const direction = isWhite ? 1 : -1;
+    if(direction===1&&fromRow===1)
+      return true;
+    if(isWhite===0&&fromRow===7)
+      return true;
     const startRow = isWhite ? 6 : 1;
-  console.log(fromRow+"::"+toRow+"::"+fromCol+"::"+toCol+"::"+direction)
+   
+  //console.log(fromRow+"::"+toRow+"::"+fromCol+"::"+toCol+"::"+direction+"::"+isWhite+"::"+board[toRow][toCol] )
     // Normal move
     if (toCol === fromCol) {
       if (board[toRow][toCol] === '' && toRow === fromRow + direction) {
@@ -25,7 +29,7 @@ export const isValidPawnMove = (from, to, board, isWhite, isEnPassant = false, e
     if (isEnPassant && enPassantPosition && toRow === enPassantPosition[0] && toCol === enPassantPosition[1]) {
         return true; // Capture en passant
     }
-    console.log('false;')
+   // console.log('false;')
     return false;
   };
   
