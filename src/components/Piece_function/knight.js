@@ -5,7 +5,7 @@ export const isValidKnightMove = (from, to) => {
   
     const rowDiff = Math.abs(fromRow - toRow);
     const colDiff = Math.abs(fromCol - toCol);
-  console.log('bishop:'+(rowDiff === 2 && colDiff === 1) || (rowDiff === 1 && colDiff === 2));
+ // console.log('bishop:'+(rowDiff === 2 && colDiff === 1) || (rowDiff === 1 && colDiff === 2));
     // Check if the move is an L shape
     return (rowDiff === 2 && colDiff === 1) || (rowDiff === 1 && colDiff === 2);
   };

@@ -5,7 +5,7 @@ export const isValidBishopMove = (from, to, board) => {
   
     const rowDiff = Math.abs(fromRow - toRow);
     const colDiff = Math.abs(fromCol - toCol);
-    console.log(fromRow+"::"+toRow+"::"+fromCol+"::"+toCol+"::"+rowDiff+"::"+colDiff)
+   // console.log(fromRow+"::"+toRow+"::"+fromCol+"::"+toCol+"::"+rowDiff+"::"+colDiff)
     // Check if the move is diagonal
     if (rowDiff === colDiff) {
       const rowStep = fromRow < toRow ? 1 : -1;

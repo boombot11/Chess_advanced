@@ -110,18 +110,18 @@ const Chessboard = () => {
       // After the move, check for checkmate
       if (isValidMove) {
         const kingIsInCheck = isKingInCheck(board, !isWhite);
+        console.log('checkmate start')
         if(turn===0){
- 
         checkmate=isCheckmate(initialBoard, !isWhite);
         }
       else
         checkmate = isCheckmate(board, !isWhite);
-
-        if (checkmate) {
-          alert(`Checkmate! ${isWhite ? 'White' : 'Black'} wins!`);
-        } else if (kingIsInCheck) {
-          alert(`${!isWhite ? 'Black' : 'White'} is in check!`);
-        }
+        console.log('checkmate start  ::end:::'+checkmate)
+        // if (checkmate) {
+        //   alert(`Checkmate! ${isWhite ? 'White' : 'Black'} wins!`);
+        // } else if (kingIsInCheck) {
+        //   alert(`${!isWhite ? 'Black' : 'White'} is in check!`);
+        // }
 
         // Update the turn
         setTurn(turn + 1);

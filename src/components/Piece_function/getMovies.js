@@ -106,6 +106,7 @@ export const getPawnMoves = ([row, col], board, isWhite) => {
 if( row === startRow && board[row + 2 * direction][col] === ''){
     blocked=true;
 }
+console.log('blocked'+row+"::"+col+"::"+direction+"::"+blocked);
   if (isWithinBounds(row + direction, col) && board[row + direction][col] === ''&& !blocked) {
     moves.push([row + direction, col]);
 

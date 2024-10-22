@@ -5,7 +5,7 @@ export const isValidRookMove = (from, to, board) => {
   
     // Rook movement: straight lines only
     if (fromRow === toRow || fromCol === toCol) {
-        console.log(toRow+"::"+fromRow+"::"+toCol+"::"+fromCol)
+        //console.log(toRow+"::"+fromRow+"::"+toCol+"::"+fromCol)
       // Check if path is clear
       if (fromRow === toRow) {
         const startCol = Math.min(fromCol, toCol);

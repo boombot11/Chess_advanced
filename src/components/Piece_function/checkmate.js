@@ -72,21 +72,23 @@ export const isCheckmate = (board, isWhite) => {
   const playerPieces = isWhite
     ? ['♙', '♖', '♘', '♗', '♕', '♔'] // White pieces
     : ['♟', '♜', '♞', '♝', '♛', '♚']; // Black pieces
-
+    console.log('xxxxxxxxxxxxxxx::'+playerPieces);
   for (let row = 0; row < board.length; row++) {
     for (let col = 0; col < board[row].length; col++) {
       const piece = board[row][col];
       if (playerPieces.includes(piece)) {
-        // Step 3: Get all possible moves for this piece
-        const possibleMoves = getPossibleMoves(piece, [row, col], board, isWhite);
-        for (const move of possibleMoves) {
-          const [newRow, newCol] = move;
-          // Step 4: Simulate the move and check if the king is still in check
-          const newBoard = simulateMove(board, [row, col], [newRow, newCol]);
-          if (!isKingInCheck(newBoard, isWhite)) {
-            return false; // Found a move that avoids check, so it's not checkmate
-          }
-        }
+       console.log("hit :"+row+"::"+col+"::"+piece+"::")
+    //     // Step 3: Get all possible moves for this piece
+    //     const possibleMoves = getPossibleMoves(piece, [row, col], board, isWhite);
+    //    // console.log(possibleMoves);
+    //     for (const move of possibleMoves) {
+    //       const [newRow, newCol] = move;
+    //       // Step 4: Simulate the move and check if the king is still in check
+    //       const newBoard = simulateMove(board, [row, col], [newRow, newCol]);
+    //       if (!isKingInCheck(newBoard, isWhite)) {
+    //         return false; // Found a move that avoids check, so it's not checkmate
+    //       }
+      //  }
       }
     }
   }
@@ -98,26 +100,32 @@ export const isCheckmate = (board, isWhite) => {
 const getPossibleMoves = (piece, position, board, isWhite) => {
   const [row, col] = position;
   let validMoves = [];
-
+console.log('start::'+piece)
   // Determine valid moves based on piece type
   switch (piece) {
     case '♖': case '♜':
       validMoves = getRookMoves([row, col], board);
+      console.log(validMoves+"a")
       break;
     case '♗': case '♝':
       validMoves = getBishopMoves([row, col], board);
+      console.log(validMoves+"b")
       break;
     case '♘': case '♞':
       validMoves = getKnightMoves([row, col], board);
+      console.log(validMoves+"c")
       break;
     case '♕': case '♛':
       validMoves = getQueenMoves([row, col], board);
+      console.log(validMoves+"d")
       break;
     case '♙': case '♟':
       validMoves = getPawnMoves([row, col], board, isWhite);
+      console.log(validMoves+"e")
       break;
     case '♔': case '♚':
       validMoves = getKingMoves([row, col], board, isWhite);
+      console.log(validMoves+"f")
       break;
     default:
       break;
